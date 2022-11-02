@@ -15,3 +15,5 @@ Template copied from https://github.com/ChristianLempa/hackbox/blob/main/src/Doc
 (Atleast its supossed to do this)
 
 also im not really experienced docker user
+
+oh yeah this is image for [Kasm](https://www.kasmweb.com/)
