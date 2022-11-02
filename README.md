@@ -17,3 +17,6 @@ Template copied from https://github.com/ChristianLempa/hackbox/blob/main/src/Doc
 also im not really experienced docker user
 
 oh yeah this is image for [Kasm](https://www.kasmweb.com/)
+
+
+**uploading to docker registry soon**
