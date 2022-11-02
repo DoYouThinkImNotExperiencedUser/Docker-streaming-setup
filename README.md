@@ -11,6 +11,7 @@ Template copied from https://github.com/ChristianLempa/hackbox/blob/main/src/Doc
 - installs PulseAudio
 - Installs PulseMeeter
 - Changes background to 6969x6969 resolution black png image
+<br>
 (Atleast its supossed to do this)
 
 also im not really experienced docker user
