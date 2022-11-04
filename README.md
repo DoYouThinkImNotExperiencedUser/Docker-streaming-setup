@@ -5,7 +5,7 @@ Template copied from https://github.com/ChristianLempa/hackbox/blob/main/src/Doc
 
 
 # Important note
-**Please note this was not tested yet and i don't even know if its working**
+**Please note this was not tested yet and i don't even know if its working** I don't really have Kasm instance running, i had but like too lazy to spin it up again, also too lazy to test on my own machine
 
 - Installs OBS
 - installs PulseAudio
