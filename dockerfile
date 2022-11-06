@@ -26,11 +26,25 @@ RUN apt install gir1.2-appindicator3-0.1
 RUN pip install pulsemeeter
 RUN pulsemeeter daemon
 # wine
-RUN dpkg --add-architecture i386 
-RUN mkdir -pm755 /etc/apt/keyrings
-RUN wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
-RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/bionic/winehq-bionic.sources
-RUN apt -y install --install-recommends winehq-stable
+RUN apt-get install -y wget software-properties-common gnupg2 winbind xvfb
+
+RUN dpkg --add-architecture i386
+RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
+RUN apt-key add winehq.key
+RUN add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+RUN apt-get update
+RUN apt-get install -y winehq-stable
+
+RUN apt-get install -y winetricks
+
+RUN apt-get clean -y
+RUN apt-get autoremove -y
+
+ENV WINEDEBUG=fixme-all
+
+RUN winetricks msxml6
+## Copied from https://stackoverflow.com/questions/61815364/how-can-i-get-my-win32-app-running-with-wine-in-docker
+
 # Copy HDSDR install script
 COPY assets/HDSDR/HDSDR_install.exe /home/kasm-default-profile/Desktop/HDSDR_install.exe
 COPY assets/HDSDR/install-hdsdr.sh /home/kasm-default-profile/Desktop/install-hdsdr.sh
