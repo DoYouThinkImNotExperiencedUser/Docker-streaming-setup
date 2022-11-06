@@ -22,3 +22,20 @@ oh yeah this is image for [Kasm](https://www.kasmweb.com/)
 
 
 **uploading to docker registry soon, you can do it yourself too tho**
+
+## How to build?
+run
+```
+git clone https://github.com/DoYouThinkImNotExperiencedUser/Docker-streaming-setup.git
+```
+open terminal in that directory and then run
+```
+sudo docker build -t 4not3/docker-streaming-setup
+```
+run `sudo docker images` to see list of images, if you don't see "4not3/docker-streaming-setup" its fine, just copy id of latest created one it should be there
+
+### How to run?
+```
+docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password [image id or name]
+```
+Password will be password and user is kasm_user
