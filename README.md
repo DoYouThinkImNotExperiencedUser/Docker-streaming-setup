@@ -19,4 +19,4 @@ also im not really experienced docker user
 oh yeah this is image for [Kasm](https://www.kasmweb.com/)
 
 
-**uploading to docker registry soon**
+**uploading to docker registry soon, you can do it yourself too tho**
