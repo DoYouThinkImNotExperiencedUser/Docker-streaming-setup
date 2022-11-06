@@ -14,22 +14,29 @@ COPY assets/background.png  /usr/share/extra/backgrounds/bg_default.png
 
 RUN apt update
 RUN apt -y upgrade
-# install obs and PulseAudio
-RUN apt -y install obs
+# Install obs
+RUN apt -y install v4l2loopback-dkms
+RUN add-apt-repository ppa:obsproject/obs-studio
+RUN apt install obs-studio
+# Install PulseAudio
 RUN apt -y install PulseAudio
-# dependencies (Pulsemeeter)
+# pulsemeeter
 RUN apt -y install python3-pip swh-plugins libgirepository1.0-dev libpulse-dev libappindicator3-dev
 RUN apt -y install gir1.2-appindicator3-0.1
-# PulseMeeter
-RUN pip -y install pulsemeeter
+RUN pip install pulsemeeter
 RUN pulsemeeter daemon
 # wine
-RUN wget -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
-RUN apt -y update
+RUN dpkg --add-architecture i386 
+RUN mkdir -pm755 /etc/apt/keyrings
+RUN wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/kinetic/winehq-kinetic.sources
 RUN apt -y install --install-recommends winehq-stable
 # Copy HDSDR install script
-COPY assets/HDSDR/HDSDR_install.exe /home/HDSDR_install.exe
-COPY assets/HDSDR/install-hdsdr.sh /home/HDSDR_install.sh
+COPY assets/HDSDR/HDSDR_install.exe /home/kasm-default-profile/Desktop/
+COPY assets/HDSDR/install-hdsdr.sh /home/kasm-default-profile/Desktop/
+
+# update
+RUN apt -y update
 
 ######### End Customizations ###########
 
