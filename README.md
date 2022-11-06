@@ -30,7 +30,7 @@ git clone https://github.com/DoYouThinkImNotExperiencedUser/Docker-streaming-set
 ```
 open terminal in that directory and then run
 ```
-sudo docker build -t 4not3/docker-streaming-setup
+sudo docker build -t 4not3/docker-streaming-setup .
 ```
 run `sudo docker images` to see list of images, if you don't see "4not3/docker-streaming-setup" its fine, just copy id of latest created one it should be there
 
