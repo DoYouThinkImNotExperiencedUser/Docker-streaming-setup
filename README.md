@@ -36,6 +36,6 @@ run `sudo docker images` to see list of images, if you don't see "4not3/docker-s
 
 ### How to run?
 ```
-docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password [image id or name]
+docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password docker-streaming-setup
 ```
 Password will be password and user is kasm_user
