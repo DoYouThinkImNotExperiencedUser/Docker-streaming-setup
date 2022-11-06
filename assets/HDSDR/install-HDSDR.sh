@@ -1,0 +1,1 @@
+wine 'HDSDR_install.exe'

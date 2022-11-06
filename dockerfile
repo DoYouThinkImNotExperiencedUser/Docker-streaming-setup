@@ -23,7 +23,13 @@ RUN apt -y install gir1.2-appindicator3-0.1
 # PulseMeeter
 RUN pip -y install pulsemeeter
 RUN pulsemeeter daemon
-
+# wine
+RUN wget -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
+RUN apt -y update
+RUN apt -y install --install-recommends winehq-stable
+# Copy HDSDR install script
+COPY assets/HDSDR/HDSDR_install.exe /home/HDSDR_install.exe
+COPY assets/HDSDR/install-hdsdr.sh /home/HDSDR_install.sh
 
 ######### End Customizations ###########
 
