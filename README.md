@@ -11,6 +11,8 @@ Template copied from https://github.com/ChristianLempa/hackbox/blob/main/src/Doc
 - installs PulseAudio
 - Installs PulseMeeter
 - Changes background to 6969x6969 resolution black png image
+- Installs wine
+- Copies HDSDR and install script to the user home folder
 <br>
 (Atleast its supossed to do this)
 
