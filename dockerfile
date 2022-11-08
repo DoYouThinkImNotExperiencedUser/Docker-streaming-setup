@@ -31,8 +31,8 @@ RUN bash $INST_SCRIPTS/wine/install_wine.sh  && rm -rf $INST_SCRIPTS/wine/
 ## Copied from https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-wine
 
 # Copy HDSDR install script
-COPY assets/HDSDR/HDSDR_install.exe /home/kasm-default-profile/Desktop/HDSDR_install.exe
-COPY assets/HDSDR/install-hdsdr.sh /home/kasm-default-profile/Desktop/install-hdsdr.sh
+COPY assets/HDSDR/HDSDR_install.exe /home/kasm-default-profile/Desktop/
+COPY assets/HDSDR/install-hdsdr.sh /home/kasm-default-profile/Desktop/
 
 # update
 RUN apt -y update
