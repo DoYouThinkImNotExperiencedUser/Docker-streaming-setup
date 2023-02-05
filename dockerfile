@@ -13,7 +13,8 @@ WORKDIR $HOME
 
 RUN apt-get update && apt-get install -y obs-studio pulseaudio pulseaudio-utils pulseaudio-module-zeroconf
 
-COPY assets/background.png $HOME/Desktop/
+COPY assets/background.png $HOME/
+RUN gsettings set org.gnome.desktop.background picture-uri file://$HOME/background.png
 
 COPY assets/HDSDR/ $HOME/Desktop/
 
