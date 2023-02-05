@@ -1,5 +1,5 @@
 # Docker-streaming-setup
-[PulseAudio](https://github.com/pulseaudio/pulseaudio) , [obs](https://github.com/obsproject/obs-studio) and [PulseMeeter](https://github.com/theRealCarneiro/pulsemeeter#installation) pre-installed [kasm/core-ubuntu-bionic:1.10.0](https://hub.docker.com/r/kasmweb/core-ubuntu-bionic) docker container
+[PulseAudio](https://github.com/pulseaudio/pulseaudio) , [obs](https://github.com/obsproject/obs-studio) and [PulseMeeter](https://github.com/theRealCarneiro/pulsemeeter#installation) pre-installed [core-ubuntu-focal](https://hub.docker.com/r/kasmweb/core-ubuntu-focal) docker container
 
 Template copied from https://github.com/ChristianLempa/hackbox/blob/main/src/Dockerfile and edited for other use
 
@@ -7,18 +7,20 @@ Template copied from https://github.com/ChristianLempa/hackbox/blob/main/src/Doc
 # Important note
 ~~**Please note this was not tested yet and i don't even know if its working** I don't really have Kasm instance running, i had but like too lazy to spin it up again, also too lazy to test on my own machine~~ This was tested as of now but not yet with full kasm instance running
 
-- Installs OBS [NO]
+- Installs OBS [YES]
 - installs PulseAudio [YES]
 - Installs PulseMeeter [NO]
-- Changes background to 6969x6969 resolution black png image [YES]
-- Installs wine [NO]
-- Copies HDSDR and install script to the user home folder [NO]
+- Changes background to 6969x6969 resolution black png image [NO]
+- Installs wine [YES]
+- Copies HDSDR and install script to the user home folder [YES]
 <br>
 (YES/NO in square brackets indicates if it currently works or not)
 
 also im not really experienced docker user
 
 oh yeah this is image for [Kasm](https://www.kasmweb.com/)
+
+
 
 
 **uploading to docker registry soon, you can do it yourself too tho**
