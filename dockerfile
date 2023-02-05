@@ -1,4 +1,6 @@
-FROM kasmweb/core-ubuntu-bionic:1.10.0
+ARG BASE_TAG="develop"
+ARG BASE_IMAGE="core-ubuntu-focal"
+FROM kasmweb/$BASE_IMAGE:$BASE_TAG
 USER root
 
 ENV HOME /home/kasm-default-profile
@@ -9,33 +11,14 @@ WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
-# background image
-COPY assets/background.png  /usr/share/extra/backgrounds/bg_default.png
+RUN apt-get update && apt-get install -y obs-studio pulseaudio pulseaudio-utils pulseaudio-module-zeroconf
 
-RUN apt update
-RUN apt -y upgrade
-# Install obs
-RUN apt -y install v4l2loopback-dkms
-RUN add-apt-repository ppa:obsproject/obs-studio
-RUN apt install obs-studio
-# Install PulseAudio
-RUN apt -y install PulseAudio
-# pulsemeeter
-RUN apt install python3-pip swh-plugins libgirepository1.0-dev libpulse-dev libappindicator3-dev
-RUN apt install gir1.2-appindicator3-0.1
-RUN pip install pulsemeeter
-RUN pulsemeeter daemon
-# wine
-COPY ./src/ubuntu/install/wine $INST_SCRIPTS/wine/
-RUN bash $INST_SCRIPTS/wine/install_wine.sh  && rm -rf $INST_SCRIPTS/wine/
-## Copied from https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-wine
+COPY assets/background.png $HOME/Desktop/
 
-# Copy HDSDR install script
-COPY assets/HDSDR/HDSDR_install.exe /home/kasm-default-profile/Desktop/
-COPY assets/HDSDR/install-hdsdr.sh /home/kasm-default-profile/Desktop/
+COPY assets/HDSDR/ $HOME/Desktop/
 
-# update
-RUN apt -y update
+COPY src/ubuntu/install/wine/install_wine.sh $HOME/
+RUN bash $HOME/install_wine.sh
 
 ######### End Customizations ###########
 
@@ -45,3 +28,5 @@ RUN $STARTUPDIR/set_user_permission.sh $HOME
 ENV HOME /home/kasm-user
 WORKDIR $HOME
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+
+USER 1000
